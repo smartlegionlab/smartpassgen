@@ -42,9 +42,9 @@ ___smartpassgen___ - A cross-platform package of modules for generating complex,
 
 ## What's new?:
 
-___smartpassgen v0.3.0___
+___smartpassgen v0.4.0___
 
-- Global code refactoring 
+- Global code refactoring.
 
 #### Warning:
 
@@ -166,30 +166,30 @@ or:
 ### Use:
 
 ```python
-from smartpassgen import Generator
+from smartpassgen import Generators
 
 login = 'login'
 secret = 'secret'
 length = 15
 
-generator = Generator()
+generators = Generators()
 
-base_password = generator.pass_gen.base()
-base_password2 = generator.pass_gen.base()
+base_password = generators.pass_gen.generate()
+base_password2 = generators.pass_gen.generate()
 assert base_password != base_password2
 
-norm_password = generator.pass_gen.norm(secret=secret, length=length)
-norm_password2 = generator.pass_gen.norm(secret=secret, length=length)
+norm_password = generators.pass_gen.generate(secret=secret, length=length)
+norm_password2 = generators.pass_gen.generate(secret=secret, length=length)
 assert norm_password == norm_password2
 
-smart_password = generator.pass_gen.smart(login=login, secret=secret)
-smart_password2 = generator.pass_gen.smart(login=login, secret=secret)
+smart_password = generators.pass_gen.generate(login=login, secret=secret)
+smart_password2 = generators.pass_gen.generate(login=login, secret=secret)
 
 assert smart_password == smart_password
 
-key = generator.key_gen.make(login, secret)
+key = generators.key_gen.make(login, secret)
 
-assert generator.key_gen.check(login, secret, key)
+assert generators.key_gen.check(login, secret, key)
 
 ```
 ### Test:

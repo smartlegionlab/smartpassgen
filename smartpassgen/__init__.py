@@ -5,6 +5,9 @@
 # Copyright © 2018-2021, A.A Suvorov
 # All rights reserved.
 # --------------------------------------------------------
+# https://github.com/smartlegionlab
+# smartlegiondev@gmail.com
+# --------------------------------------------------------
 """
 smartpassgen - Smart Password Generators
 
@@ -13,5 +16,5 @@ generated and recoverable passwords "on the fly",
 linked to a login and a secret phrase.
 
 """
-from smartpassgen.tools import Generator
-__version__ = '0.3.0'
+from smartpassgen.generators import Generators
+__version__ = '0.4.0'

@@ -5,18 +5,21 @@
 # Copyright © 2018-2021, A.A Suvorov
 # All rights reserved.
 # --------------------------------------------------------
+# https://github.com/smartlegionlab
+# smartlegiondev@gmail.com
+# --------------------------------------------------------
 from collections import namedtuple
 
-import pytest as pytest
+import pytest
 
-from smartpassgen.generator import PassGen
-from smartpassgen.keygen import KeyGen
-from smartpassgen.tools import (
-    get_base_password,
-    get_norm_password,
-    get_smart_password,
+from smartpassgen.generators import (
+    PassGen, 
+    KeyGen,
+    gen_base_pass,
+    gen_norm_pass,
+    gen_smart_pass,
     make_public_key,
-    check_public_key
+    check_public_key,
 )
 
 
@@ -65,17 +68,17 @@ def obj_pass_gen():
 
 @pytest.fixture(name='func_get_base')
 def func_get_base():
-    return get_base_password
+    return gen_base_pass
 
 
 @pytest.fixture(name='func_get_norm')
 def func_get_norm():
-    return get_norm_password
+    return gen_norm_pass
 
 
 @pytest.fixture(name='func_get_smart')
 def func_get_smart():
-    return get_smart_password
+    return gen_smart_pass
 
 
 @pytest.fixture(name='func_make_key')
